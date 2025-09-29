@@ -1,0 +1,130 @@
+{
+	"info": {
+		"name": "Trading API Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"health"
+					]
+				}
+			}
+		},
+		{
+			"name": "Fetch Market Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ticker\": \"PETR4.SA\",\n  \"start_date\": \"2022-01-01\",\n  \"end_date\": \"2023-12-31\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/data/fetch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"data",
+						"fetch"
+					]
+				}
+			}
+		},
+		{
+			"name": "Run Backtest (SmaCrossML)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ticker\": \"PETR4.SA\",\n  \"start_date\": \"2022-01-01\",\n  \"end_date\": \"2023-12-31\",\n  \"strategy_type\": \"sma_cross_ml\",\n  \"strategy_params\": {\n    \"fast\": 10,\n    \"slow\": 30\n  },\n  \"initial_cash\": 100000,\n  \"commission\": 0.001\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/backtests/run",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"backtests",
+						"run"
+					]
+				}
+			}
+		},
+		{
+			"name": "List Backtests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/backtests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"backtests"
+					]
+				}
+			}
+		},
+		{
+			"name": "Get Backtest Results",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/backtests/1/results",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"backtests",
+						"1",
+						"results"
+					]
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+python-dotenv
+SQLAlchemy==2.0.31
+psycopg2-binary
+alembic
+yfinance
+pandas
+backtrader
+pytest
+pytest-cov
+httpx
+scikit-learn

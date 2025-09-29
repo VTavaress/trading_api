@@ -1,0 +1,35 @@
+### Health Check
+GET http://localhost:8000/api/v1/health
+
+### Fetch Market Data for PETR4.SA
+POST http://localhost:8000/api/v1/data/fetch
+Content-Type: application/json
+
+{
+  "ticker": "PETR4.SA",
+  "start_date": "2022-01-01",
+  "end_date": "2023-12-31"
+}
+
+### Run Backtest (SmaCrossML)
+POST http://localhost:8000/api/v1/backtests/run
+Content-Type: application/json
+
+{
+  "ticker": "PETR4.SA",
+  "start_date": "2022-01-01",
+  "end_date": "2023-12-31",
+  "strategy_type": "sma_cross_ml",
+  "strategy_params": {
+    "fast": 10,
+    "slow": 30
+  },
+  "initial_cash": 100000,
+  "commission": 0.001
+}
+
+### List All Backtests
+GET http://localhost:8000/api/v1/backtests
+
+### Get Detailed Results for a Specific Backtest (change ID if needed)
+GET http://localhost:8000/api/v1/backtests/1/results
